@@ -1,0 +1,9 @@
+var speedway =
+{
+"type": "FeatureCollection",
+"name": "speedway_points2",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1 }, "geometry": { "type": "Point", "coordinates": [ -79.080858976139567, 36.07446344644643 ] } }
+]
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occoneechee Speedway</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+
+   <script src = "./geoJSON/speedway_points2.geojson.txt"></script>
+
+</head>
+<body>
+    
+    <div id="mapid"></div>
+<style>
+    #mapid{ width: 900px; height: 500px;}
+</style> 
+
+<script>
+    var map = L.map('mapid').setView([ 36.07446344644643, -79.080858976139567 ], 16);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map)
+    //L.marker([35.911427, -79.051266]).addTo(map)
+        //.bindPopup("Campus Y")
+        //.openPopup();
+
+    //L.geoJSON(speedway).addTo(map)
+    
+    var syIcon = L.icon({ 
+        iconUrl: 'https://i.ytimg.com/vi/tKZYx7hQVi8/maxresdefault.jpg',
+        iconSize: [50,30],
+        popupAnchor: [0,0]
+        });
+
+    var customPopup = "Occoneechee Speedway<br/><img src= 'https://2.bp.blogspot.com/-n6-p9c67nMI/WsMUEi-a6sI/AAAAAAAFEw8/6mXSsywldtUK5jaTA44wqKGhNVEg6NcbQCLcBGAs/w1200-h630-p-k-no-nu/Occoneechee-Speedway-trail-viewing-stand-1024x768.jpg' width= '100px'/>";
+    
+    L.geoJSON(speedway, { // a
+    pointToLayer:function(feature, latlng) { // b
+    return L.marker(latlng, {icon:syIcon});}}) // c
+    .bindPopup(customPopup) // d
+    .addTo(map); //
+
+</script>
+</body>
+</html>
