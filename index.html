@@ -27,7 +27,7 @@
     var map = L.map('mapid').setView([ 36.07446344644643, -79.080858976139567 ], 16);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map)
     //L.marker([35.911427, -79.051266]).addTo(map)
-        //.bindPopup("Campus Y")
+        //.bindPopup("Speedway")
         //.openPopup();
 
     //L.geoJSON(speedway).addTo(map)
@@ -56,14 +56,20 @@
     pointToLayer:function(feature, latlng) { // b
     return L.marker(latlng, {icon:syIcon});}}) // c
     .bindPopup(customPopup) // d
-    .addTo(map); //
+    .addTo(map);
 
     var tiles = { 
       "Open Topo Map": OpenTopoMap,
       "Hillsborough 1950": photo
     }
+    
+    var marker = L.marker([35.911427, -79.051266]);
 
-    L.control.layers(tiles).addTo(map);
+    var vector = {
+        "Occoneechee Speedway": marker
+    }
+
+    L.control.layers(tiles, vector).addTo(map);
 
 
 </script>
