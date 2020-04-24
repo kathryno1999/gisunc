@@ -43,7 +43,14 @@
         tms: false,
         attribution: 'USGS'
       });
-  
+
+    var photo2 = L.tileLayer('./tiles_2013/{z}/{x}/{y}.png', {
+        minZoom: 12,
+        maxZoom: 16,
+        tms: false,
+        attribution: 'USGS'
+    });  
+
     var syIcon = L.icon({ 
         iconUrl: 'https://i.ytimg.com/vi/tKZYx7hQVi8/maxresdefault.jpg',
         iconSize: [50,30],
@@ -60,7 +67,8 @@
 
     var tiles = { 
       "Open Topo Map": OpenTopoMap,
-      "Hillsborough 1950": photo
+      "Hillsborough 1950": photo,
+      "Hillsborough 2013": photo2
     }
     
     var marker = L.marker([35.911427, -79.051266]);
